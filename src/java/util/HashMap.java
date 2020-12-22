@@ -1474,7 +1474,7 @@ public class HashMap<K,V> extends AbstractMap<K,V> implements Map<K,V>, Cloneabl
     /**
      * Implements Map.putAll and Map constructor.
      *
-     * @param m     the map
+     * @param map     the map
      * @param evict false when initially constructing this map, else true (relayed to method afterNodeInsertion).
      */
     // 将指定HashMap中的元素存入到当前HashMap（允许覆盖）
@@ -2025,7 +2025,7 @@ public class HashMap<K,V> extends AbstractMap<K,V> implements Map<K,V>, Cloneabl
         TreeNode<K,V> right;
         boolean red;
         
-        TreeNode<K,V> prev;    // needed to unlink next upon deletion
+        TreeNode<K,V> prev;    // 删除后需要取消链接
         
         
         // 仍然需要维护next链接
@@ -2075,7 +2075,7 @@ public class HashMap<K,V> extends AbstractMap<K,V> implements Map<K,V>, Cloneabl
                         /*
                          * 判断待插入元素的插入位置，是向左查找？还是向右查找？
                          * 判断依据依次为：
-                         *                                                                                                          ┌──不相同，可以得出结果 ★
+                         *                                                                                                         ┌──不相同，可以得出结果 ★
                          *           ┌──不相同，直接得出结果 ★                                    ┌──类型一致───使用compareTo()方法判断──┤
                          * 判断hash ──┤                           ┌──有效───检查参与比较的元素类型──┤                                   └───相同───┐
                          *           └──相同───检查Comparable接口──┤                             └───类型不一致───────────────────────────────────┼──调用tieBreakOrder()方法，可以得出结果 ★

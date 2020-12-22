@@ -4930,6 +4930,8 @@ public class ConcurrentHashMap<K, V> extends AbstractMap<K, V> implements Concur
     /**
      * A node inserted at head of bins during transfer operations.
      */
+//    标记作用，表示其他线程正在扩容，并且此节点已经扩容完毕
+//    关联了nextTable,扩容期间可以通过find方法，访问已经迁移到了nextTable中的数据
     // 前向结点，应用在数据迁移中。比如Map在扩容时，会将新容器包裹在前向结点中，扩容完毕之后，则撤销该前向结点
     static final class ForwardingNode<K, V> extends Node<K, V> {
         final Node<K, V>[] nextTable;

@@ -79,7 +79,7 @@ public class DataInputStream extends FilterInputStream implements DataInput {
      *
      * @return the <code>boolean</code> value read.
      *
-     * @throws EOFException if this input stream has reached the end.
+     * @throws EOFException if this input stream has reached the end. cc
      * @throws IOException  the stream has been closed and the contained
      *                      input stream does not support reading after close, or
      *                      another I/O error occurs.
